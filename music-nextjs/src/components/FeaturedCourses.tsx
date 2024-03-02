@@ -3,6 +3,7 @@ import Link from 'next/link'
 
 import courseData from '../data/music_courses.json'
 import { BackgroundGradient } from './ui/background-gradient'
+import Image from 'next/image'
 
 
 interface Course{
@@ -13,7 +14,7 @@ interface Course{
     price: number,
     instructor: string,
     isFeatured: boolean,
-        
+        image:string
 }
 
 function FeaturedCourses() {
@@ -33,6 +34,12 @@ function FeaturedCourses() {
                         <BackgroundGradient
                         className="flex flex-col rounded-[22px] bg-white dark:bg-zinc-900 overflow-hidden h-full max-w-sm">
                             <div className="p-4 sm:p-6 flex flex-col items-center text-center flex-grow">
+                            <Image
+                            src={course.image}
+                            alt='asd'
+                            width={400}
+                            height={400}
+                            ></Image>
                                 <p className="text-lg sm:text-xl text-black mt-4 mb-2 dark:text-neutral-200">{course.title}</p>
                                 <p className="text-sm text-neutral-600 dark:text-neutral-400 flex-grow">{course.description}</p>
                                 <Link href={`/courses/${course.slug}`}>
