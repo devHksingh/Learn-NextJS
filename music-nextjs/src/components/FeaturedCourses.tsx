@@ -36,7 +36,7 @@ function FeaturedCourses() {
                             <div className="p-4 sm:p-6 flex flex-col items-center text-center flex-grow">
                             <Image
                             src={course.image}
-                            alt='asd'
+                            alt={course.description}
                             width={400}
                             height={400}
                             ></Image>
