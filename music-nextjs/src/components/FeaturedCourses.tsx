@@ -42,8 +42,13 @@ function FeaturedCourses() {
                             ></Image>
                                 <p className="text-lg sm:text-xl text-black mt-4 mb-2 dark:text-neutral-200">{course.title}</p>
                                 <p className="text-sm text-neutral-600 dark:text-neutral-400 flex-grow">{course.description}</p>
-                                <Link href={`/courses/${course.slug}`}>
-                                Learn More
+                                <Link href={`/courses/${course.slug}`}
+                                className='mt-2'
+                                >
+                                    <button className="px-6 py-2 bg-black text-white rounded-lg font-bold transform hover:-translate-y-1 transition duration-400">
+                                    Learn More
+                                    </button>
+                                
                                 </Link>
                             </div>
                         </BackgroundGradient>

@@ -13,6 +13,20 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   darkMode:'class',
+  // tailwind.config.js code
+  "animation": {
+    shimmer: "shimmer 2s linear infinite"
+  },
+  "keyframes": {
+    shimmer: {
+      from: {
+        "backgroundPosition": "0 0"
+      },
+      to: {
+        "backgroundPosition": "-200% 0"
+      }
+    }
+  },
   theme: {
     extend: {
       animation: {
@@ -38,6 +52,7 @@ const config: Config = {
     },
   },
   plugins: [
+    require('tailwind-scrollbar-hide'),
     addVariablesForColors,
   ],
 };
@@ -54,3 +69,8 @@ function addVariablesForColors({ addBase, theme }: any) {
     ":root": newVars,
   });
 }
+
+        
+  
+
+      
