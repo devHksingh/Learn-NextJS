@@ -105,7 +105,7 @@ const musicSchoolContent = [
 
 function WhyChooseUs() {
   return (
-    <div>
+    <div >
         <StickyScroll content={musicSchoolContent} contentClassName="scrollbar-hide overflow"/>
     </div>
   )
