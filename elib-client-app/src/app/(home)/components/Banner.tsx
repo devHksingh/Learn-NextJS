@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image';
-import PaperBg from '../../public/paper-bg.jpg'
-import BookImage from '../../public/book.png'
+import PaperBg from '../../../../public/paper-bg.jpg'
+
 
 const Banner = () => {
   return (
@@ -17,7 +17,7 @@ const Banner = () => {
                 />
                 <div className="absolute inset-0 h-full w-full rounded-lg bg-gray-950 opacity-30" />
                 <Image
-                    src={BookImage}
+                    src={'/book.png'}
                     alt="billboard"
                     className="absolute bottom-0 right-5"
                     height={0}
