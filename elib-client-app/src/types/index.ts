@@ -1,5 +1,5 @@
 
-export interface Book {
+export type Book ={
     _id:string;
     title:string;
     description:string;
@@ -9,7 +9,7 @@ export interface Book {
     
 }
 
-export interface Author {
+export type Author= {
     name:string;
 
 }

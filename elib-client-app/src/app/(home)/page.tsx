@@ -13,7 +13,8 @@ export default async function Home() {
   }
 
   const books = await response.json()
-  console.log(books);
+  // console.log(books.book);
+  // console.log(typeof(books.book));
   
   
 
@@ -21,7 +22,7 @@ export default async function Home() {
     
     <>
     <Banner />
-    <BookList books={books} />
+    <BookList books={books.book} />
     </>
   );
 }
