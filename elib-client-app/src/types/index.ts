@@ -5,5 +5,11 @@ export interface Book {
     description:string;
     coverImage:string;
     file:string;
+    author:Author
     
+}
+
+export interface Author {
+    name:string;
+
 }
