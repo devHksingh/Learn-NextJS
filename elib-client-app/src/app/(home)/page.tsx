@@ -1,20 +1,20 @@
 import Banner from "@/app/(home)/components/Banner";
-import Image from "next/image";
 import BookList from "./components/BookList";
+import { Suspense } from "react";
+import Loading from "@/components/Loading";
 
 export default async function Home() {
 
   // data fetching
 
-  const response = await fetch(`${process.env.BACKEND_URL}/books`, { cache: 'no-store' })
+  // const response = await fetch(`${process.env.BACKEND_URL}/books`, { cache: 'no-store' })
 
-  if(!response.ok){
-    throw new Error('An error occured while fetching the book')
-  }
+  // if(!response.ok){
+  //   throw new Error('An error occured while fetching the book')
+  // }
 
-  const books = await response.json()
-  // console.log(books.book);
-  // console.log(typeof(books.book));
+  // const books = await response.json()
+  // console.log(books);
   
   
 
@@ -22,7 +22,9 @@ export default async function Home() {
     
     <>
     <Banner />
-    <BookList books={books.book} />
+    <Suspense fallback={<Loading/>}>
+        <BookList  />
+    </Suspense>
     </>
   );
 }
