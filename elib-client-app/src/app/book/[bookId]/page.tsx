@@ -31,7 +31,7 @@ const SingleBookPage = async ({params}:{params :{bookId:string}}) => {
                 <h2 className="mb-5 text-5xl font-bold leading-[1.1]">{book.title}</h2>
                 <span className="font-semibold">by {book.author.name?book.author.name:"Alice Johnson"}</span>
                 <p className="mt-5 text-lg leading-8">{book.description}</p>
-                {/* <DownloadButton fileLink={book.file} /> */}
+                <DownloadButton fileLink={book.file} />
             </div>
             <div className="flex justify-end">
                 <Image
@@ -43,7 +43,7 @@ const SingleBookPage = async ({params}:{params :{bookId:string}}) => {
                     sizes="100vw"
                     style={{ width: 'auto', height: 'auto' }}
                 />
-                <DownloadButton fileLink={book.file}/>
+                
                 {/* <button 
                 onClick={()=>{}}
                 className='mt-10 h-10 rounded-md bg-primary-500 px-4 py-3 text-sm font-medium text-white transition-all hover:bg-primary-600 active:bg-primary-700'
