@@ -9,10 +9,11 @@ const BookCard = ({book}:{book:Book}) => {
             <Image
                 src={book.coverImage}
                 alt={book.title}
-                width={200}
-                height={300}
+                width={0}
+                height={0}
                 sizes="100vw"
                 style={{ width: 'auto', height: '12rem' }}
+                className='shadow-lg'
             />
             <div>
                 <h2 className="line-clamp-2 text-xl font-bold text-primary-600 text-balance">
