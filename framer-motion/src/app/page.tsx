@@ -3,6 +3,7 @@ import BasicsOfMoyion from "@/components/BasicsOfMotion"
 import Gestures from "@/components/Gestures";
 import AnimationControls from "@/components/AnimationControls";
 import ViewBasedAnimations from "@/components/ViewBasedAnimations";
+import ScrollAnimations from "@/components/ScrollAnimations";
 export default function Home() {
   return (
     
@@ -10,7 +11,8 @@ export default function Home() {
     {/* <BasicsOfMoyion/> */}
     {/* <Gestures/> */}
     {/* <AnimationControls/> */}
-    <ViewBasedAnimations/>
+    {/* <ViewBasedAnimations/> */}
+    <ScrollAnimations/>
     </section>
     
   );
