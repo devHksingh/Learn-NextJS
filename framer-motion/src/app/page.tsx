@@ -1,5 +1,6 @@
 import Image from "next/image";
-import BasicsOfMoyion from "../components/BasicsOfMotion"
+import BasicsOfMoyion from "@/components/BasicsOfMotion"
+import Gestures from "@/components/Gestures";
 export default function Home() {
   return (
     // <main className="flex min-h-screen flex-col items-center justify-between p-24">
@@ -109,6 +110,11 @@ export default function Home() {
     //     </a>
     //   </div>
     // </main>
+    // 
+    <section>
     <BasicsOfMoyion/>
+    <Gestures/>
+    </section>
+    
   );
 }
