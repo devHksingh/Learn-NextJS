@@ -19,8 +19,10 @@ export async function POST(request:NextRequest){
         }
 
         const user= await User.findOne({verifyToken:token,
-            vverifyTokenExpiry:{$gt:Date.now()}
-        })
+            verifyTokenExpiry:{$gt:Date.now()}
+        }).select("-password")
+        console.log('Verify user',user);
+        
 
         if(!user){
             return NextResponse.json({
