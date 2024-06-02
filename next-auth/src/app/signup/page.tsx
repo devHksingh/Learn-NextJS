@@ -10,32 +10,36 @@ export default function SignupPage() {
   const [user,setUser] = useState({
     email:"",
     password:"",
-    username:""
+    username:"",
   })
 
-  const [btnDisabled,setBtnDisabled] = useState(false)
+  const [buttonDisabled, setButtonDisabled] = useState(false);
   const [loading,setLoading] = useState(false)
 
-  const onSignup = async ()=>{
+  const onSignup = async () => {
     try {
-      setLoading(true)
-      const response = await axios.post("/api/users/signup",user)
-      console.log(response);
+      console.log('hi');
       
-      console.log("Signup success",response.data);
-      router.push('/login')
-
+        setLoading(true);
+        const response = await axios.post("/api/users/signup", user);
+        console.log("Signup success", response.data);
+        router.push("/login");
+        
     } catch (error:any) {
-      console.log("Signup failed");
-      toast.error(error.message)
+        console.log("Signup failed", error.message);
+        
+        toast.error(error.message);
+    }finally {
+        setLoading(false);
     }
-  }
+}
+
 
   useEffect(()=>{
     if(user.email.length> 0 && user.password.length> 0 && user.username.length> 0){
-      setBtnDisabled(false)
+      setButtonDisabled(false)
     }else{
-      setBtnDisabled(true)
+      setButtonDisabled(true)
     }
   },[user])
   
@@ -67,16 +71,20 @@ export default function SignupPage() {
         type='password'
         id='password'
         value={user.password}
-        onChange={(e)=> setUser({...user,password:e.target.value})}
+        onChange={(e)=> {setUser({...user,password:e.target.value})
+        console.log(user.password);
+        
+      }}
         placeholder='Password'
         className='p-2 rounded-lg border border-gray-400 mb-4 focus:outline-none focus:border-gray-600 text-black'
         />
         <button 
-        onChange={onSignup}
+        onClick={onSignup}
         className='border py-2 rounded-lg capitalize hover:bg-slate-950 hover:text-lime-600 focus:border-gray-600 focus:outline-none'>
-          {btnDisabled?"fill the form":"Signup"}
+          {buttonDisabled?"fill the form":"Signup"}
         </button>
         <Link href='/login'>Visit login page</Link>
+        
       </div>
     </div>
   )
