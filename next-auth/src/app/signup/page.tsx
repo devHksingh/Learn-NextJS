@@ -72,7 +72,7 @@ export default function SignupPage() {
         id='password'
         value={user.password}
         onChange={(e)=> {setUser({...user,password:e.target.value})
-        console.log(user.password);
+        
         
       }}
         placeholder='Password'
@@ -80,6 +80,7 @@ export default function SignupPage() {
         />
         <button 
         onClick={onSignup}
+        disabled={buttonDisabled}
         className='border py-2 rounded-lg capitalize hover:bg-slate-950 hover:text-lime-600 focus:border-gray-600 focus:outline-none'>
           {buttonDisabled?"fill the form":"Signup"}
         </button>
