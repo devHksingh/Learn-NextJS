@@ -30,7 +30,7 @@ const LoginForm = () => {
           type="submit"
           className="m-4 rounded-xl py-2 capitalize bg-orange-400 text-black hover:bg-lime-600"
           >
-            Ceredentioal login
+            Credentioal login
           </button>
         
       </form>
