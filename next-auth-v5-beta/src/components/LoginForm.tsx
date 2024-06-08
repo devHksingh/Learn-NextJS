@@ -1,12 +1,34 @@
 'use client'
+import { FormEvent } from "react";
 // import { doSocialLogin } from "@/app/actions";
 import SocialLogin from "./SocialLogin";
+import { doCredentialLogin } from "@/app/actions";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 const LoginForm = () => {
+  const router = useRouter()
+   
+
+  async function handleFormSubmit(event:FormEvent<HTMLFormElement>){
+    event.preventDefault()
+    try {
+      const formData = new FormData(event.currentTarget)
+      const response  = await doCredentialLogin(formData)
+      if(response.error){
+        
+      }else{
+        router.push('/home')
+      }
+    } catch (error) {
+      console.log("error");
+      
+    }
+  }
   return (
     <div className="flex-col border p-6 rounded-lg gap-4 items-center justify-center">
       <h1 className="text-xl">LoginForm</h1>
-      <form className="flex flex-col gap-2 mt-6">
+      <form className="flex flex-col gap-2 mt-6" onSubmit={handleFormSubmit}>
         
           <label className="text-xl font-semibold text-pretty text-gray-400">Email Address:</label>
           <input
