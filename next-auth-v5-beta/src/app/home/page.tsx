@@ -1,5 +1,6 @@
 
 import { auth } from "@/auth"
+import Logout from "@/components/Logout"
 import Image from "next/image"
 import { redirect } from "next/navigation"
 
@@ -9,7 +10,9 @@ const HomePage = async() => {
     if(!session?.user) redirect("/")
   return (
     <div className="flex flex-col-reverse items-center m-4 p-8">
+        <Logout/>
         <h1 className="capitalize"> hi{" "}{session?.user.name}</h1>
+        
         {session?.user.image && session?.user.name && (
            <Image
            src={session.user.image}
@@ -19,6 +22,7 @@ const HomePage = async() => {
            className="rounded-full m-2"
          />
         )}
+        
     </div>
   )
 }
