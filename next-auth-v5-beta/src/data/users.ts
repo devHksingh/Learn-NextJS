@@ -1,0 +1,22 @@
+const users = [
+    {
+       id:"123",
+       email:"test@test.com",
+       password:"password"
+    },
+    {
+       id:"246",
+       email:"one@test.com",
+       password:"password"
+    },
+    {
+       id:"446",
+       email:"two@test.com",
+       password:"password"
+    },
+    {
+       id:"224",
+       email:"three@test.com",
+       password:"password"
+    }
+]
