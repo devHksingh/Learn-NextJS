@@ -8,7 +8,7 @@ import { useState } from "react";
 
 const LoginForm = () => {
   const router = useRouter()
-   
+  const [error,setError] = useState("")  
 
   async function handleFormSubmit(event:FormEvent<HTMLFormElement>){
     event.preventDefault()
@@ -16,18 +16,19 @@ const LoginForm = () => {
       const formData = new FormData(event.currentTarget)
       const response  = await doCredentialLogin(formData)
       if(response.error){
-        
+        setError(response.error.message)
       }else{
         router.push('/home')
       }
     } catch (error) {
       console.log("error");
-      
+      setError("Check your credentials")
     }
   }
   return (
     <div className="flex-col border p-6 rounded-lg gap-4 items-center justify-center">
       <h1 className="text-xl">LoginForm</h1>
+      <div className="text-rose-400 text-lg">{error}</div>
       <form className="flex flex-col gap-2 mt-6" onSubmit={handleFormSubmit}>
         
           <label className="text-xl font-semibold text-pretty text-gray-400">Email Address:</label>
