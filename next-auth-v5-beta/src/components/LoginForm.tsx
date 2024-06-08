@@ -1,4 +1,5 @@
-import { doSocialLogin } from "@/app/actions";
+'use client'
+// import { doSocialLogin } from "@/app/actions";
 import SocialLogin from "./SocialLogin";
 
 const LoginForm = () => {
