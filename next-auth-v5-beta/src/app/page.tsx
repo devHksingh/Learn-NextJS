@@ -8,6 +8,7 @@ export default function Home() {
         <div className="flex-col">
           <h1 className="text-center text-4xl mb-4">Login</h1>
           <LoginForm/>
+          
         </div>
       </div>
     </div>

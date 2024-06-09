@@ -5,6 +5,7 @@ import SocialLogin from "./SocialLogin";
 import { doCredentialLogin } from "@/app/actions";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import Link from "next/link";
 
 const LoginForm = () => {
   const router = useRouter()
@@ -59,7 +60,11 @@ const LoginForm = () => {
         
       </form>
       <SocialLogin/>
-      
+      <p className="mt-4">Don't you have an account?
+        <Link href="register"
+         className="ml-2 underline"
+        >Register</Link>
+      </p>
     </div>
   );
 };
