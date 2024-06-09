@@ -1,4 +1,5 @@
-import { NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
+import { json } from "stream/consumers";
 
 
 
@@ -13,4 +14,8 @@ export const POST = async(request:NextRequest)=>{
     // Form a DB payload
 
     // Update the DB
+
+    return NextResponse.json({
+        message:"User has been created"
+    },{status:201})
 }
