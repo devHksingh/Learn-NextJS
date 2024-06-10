@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createUser } from "@/queries/users";
 import bcryptjs from "bcryptjs"
-import dbConnect from "@/lib/mongo";
+import {dbConnect} from "@/lib/mongo";
 
 
 export const POST = async(request:NextRequest)=>{

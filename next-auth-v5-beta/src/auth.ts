@@ -3,6 +3,8 @@ import google from "next-auth/providers/google";
 import github from "next-auth/providers/github";
 import credentialsProvider from "next-auth/providers/credentials";
 import { getUserByEmail } from "./data/users";
+import { User } from "./model/user-model";
+import bcryptjs from "bcryptjs"
 
 export const {
     handlers:{GET,POST},
@@ -20,13 +22,20 @@ export const {
                 password: {},
             },
             async authorize(credentials) {
-                if (credentials === null) return null;
+                // if (credentials === null) return null;
+                console.log("AUTH JS $$$$$$$$$$$");
+                
+                console.log("credentials",credentials);
                 
                 try {
-                    const user = getUserByEmail(credentials?.email as string);
+                    // const user = getUserByEmail(credentials?.email as string);
+                    const user = await User.findOne({
+                        email: credentials?.email
+                    })
                     console.log(user);
                     if (user) {
-                        const isMatch = user?.password === credentials.password;
+                        // const isMatch = user?.password === credentials.password;
+                        const isMatch = await bcryptjs.compare(credentials.password as string, user?.password as string)
 
                         if (isMatch) {
                             return user;
