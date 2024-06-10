@@ -9,6 +9,9 @@ export async function POST(request:NextRequest){
     await dbConnect()
     try {
         const {username,email,password} = await request.json() 
+        console.log("sign-up request",request );
+        console.log("username,email,password",username,email,password);
+        
         const existingUserVerifiedByUsername = await UserModel.findOne({
             username,
             isVerified:true
