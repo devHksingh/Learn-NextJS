@@ -76,7 +76,7 @@ function RegistrationForm() {
       <hr className='text-white w-1/2'/>
       <SocialLogin/>
       <p className="mt-4">Already have an account?
-        <Link href="/"
+        <Link href="/login"
          className="ml-2 underline"
         >Login</Link>
       </p>

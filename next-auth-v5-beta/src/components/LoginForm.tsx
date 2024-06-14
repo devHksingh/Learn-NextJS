@@ -60,7 +60,7 @@ const LoginForm = () => {
         
       </form>
       <SocialLogin/>
-      <p className="mt-4">Don't you have an account?
+      <p className="mt-4">Dont you have an account?
         <Link href="register"
          className="ml-2 underline"
         >Register</Link>
