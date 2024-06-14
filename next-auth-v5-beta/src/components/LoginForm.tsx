@@ -19,7 +19,7 @@ const LoginForm = () => {
       if(response.error){
         setError(response.error.message)
       }else{
-        router.push('/home')
+        router.push('/products')
       }
     } catch (error) {
       console.log("error");
