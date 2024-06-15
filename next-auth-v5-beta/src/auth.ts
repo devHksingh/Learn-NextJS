@@ -5,6 +5,9 @@ import credentialsProvider from "next-auth/providers/credentials";
 import { getUserByEmail } from "./data/users";
 import { User } from "./model/user-model";
 import bcryptjs from "bcryptjs"
+import { authConfig } from "./auth.config";
+
+
 
 export const {
     handlers:{GET,POST},
@@ -12,9 +15,10 @@ export const {
     signIn,
     signOut,
 }=NextAuth({
-    session:{
-        strategy:'jwt'
-    },
+    // session: {
+    //     strategy: "jwt", // or "database"
+    // },
+    ...authConfig,
     providers:[
         credentialsProvider({
             credentials: {
