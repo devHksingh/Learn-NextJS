@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 // import {auth} from "./auth"
 import { authConfig } from "./auth.config";
 import NextAuth from "next-auth";
-import { PUBLIC_ROUTES,LOGIN,ROOT } from "./lib/routes";
+import { PUBLIC_ROUTES,LOGIN,ROOT, PROTECTED_SUB_ROUTES } from "./lib/routes";
 
 const {auth} = NextAuth(authConfig)
 
@@ -23,7 +23,7 @@ export default async function middleware(request:NextRequest){
 
     console.log("isAuthenticated , nextUrl.pathname",isAuthenticated ,nextUrl.pathname);
     
-    const isPublicRoute = (PUBLIC_ROUTES.find(route => nextUrl.pathname.startsWith(route)) || nextUrl.pathname === ROOT)
+    const isPublicRoute = ((PUBLIC_ROUTES.find(route => nextUrl.pathname.startsWith(route)) || nextUrl.pathname === ROOT) && !PROTECTED_SUB_ROUTES.find(route => nextUrl.pathname.includes(route)))
 
     console.log("isPublicRoute",isPublicRoute);
     
