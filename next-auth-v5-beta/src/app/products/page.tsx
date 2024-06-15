@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const  ProductListPage = () => {
     const listOfAllProducts = getAllProducts()
-    console.log(listOfAllProducts);
+    // console.log(listOfAllProducts);
     
   return (
     <div className=""> 
@@ -14,7 +14,7 @@ const  ProductListPage = () => {
             {
                 listOfAllProducts.map((product)=>(
                     <Link key={product.id} href={`/products/${product.id}`} className="text-center cursor-pointer hover:bg-sky-600 grid place-content-center border rounded-xl p-6 ">
-                        <div className="">
+                        <div>
                             
                             <span className=" text-6xl mb-2">{product.image}</span>
                             <h2 className=" text-2xl text-gray-600 mt-2 hover:text-gray-100">{product.name}</h2>

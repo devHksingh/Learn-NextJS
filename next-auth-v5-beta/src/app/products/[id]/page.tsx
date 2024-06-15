@@ -5,7 +5,7 @@ import Link from "next/link";
 const ProductDetailsPage = ({params}:{params:{id:string}}) => {
     const productId = params.id
     const product = getProductById(productId)
-    console.log(product);
+    // console.log(product);
     
   return (
     
