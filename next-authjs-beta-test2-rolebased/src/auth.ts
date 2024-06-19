@@ -12,7 +12,7 @@ export const {handlers,signIn,signOut,auth} = NextAuth({
         credentialProvider({
             credentials:{
                 // username:{},
-                email:{},
+                identifier:{},
                 password:{}
             },
             async authorize(credentials:any):Promise<any>{
@@ -28,6 +28,8 @@ export const {handlers,signIn,signOut,auth} = NextAuth({
                             {username:credentials.identifier.username}
                         ]
                     })
+                    console.log("AUTH.TS user :",user);
+                    
                     if(!user){
                         throw new Error("User not found")
                     }

@@ -18,7 +18,6 @@ export default async function RootLayout({
 }>) {
    await dbConnect()
   
-  
   return (
     <html lang="en">
       <body className={inter.className}>
