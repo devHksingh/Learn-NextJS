@@ -2,7 +2,7 @@
 
 import { signIn,signOut } from "@/auth";
 
-export async function doSocialLogin(formData){
+export async function doSocialLogin(formData:FormData){
     const action = formData.get('action')
     console.log("Action => index.ts : action",action);
     if(action && typeof(action)==="string"){
@@ -15,12 +15,12 @@ export async function doLogout (){
     await signOut({redirectTo:'/login'})
 }
 
-interface FormData {
+interface Data {
     identifier: string;
     password: string;
   }
 
-export async function doCredentialLogin(data:FormData) {
+export async function doCredentialLogin(data:Data) {
     console.log("formData", data);
   
     try {
