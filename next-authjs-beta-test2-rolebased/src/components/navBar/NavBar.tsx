@@ -12,7 +12,7 @@ const NavBar = () => {
     const [active,setActive] = useState(false)
     const activeClassName = `border-lime-400 border-b-2 pb-2`
   return (
-    <header className='border flex justify-between items-center p-4 dark:bg-slate-900'>
+    <header className='border flex justify-between items-center p-4 dark:bg-slate-900 z-50 shadow-lg'>
         <div className=''>
             <Link href={'/'} className='flex gap-1'><MessageSquareCode/> Message</Link>
         </div>
@@ -36,7 +36,9 @@ const NavBar = () => {
         <nav className='space-x-4 flex '>
             <Button><Link href={"/login"}>Login</Link></Button>
             <Button ><Link href={"/register"}>Register</Link></Button>
+            <div className='z-50'>
             <ModeToggle/>
+            </div>
             <ul>
 
             </ul>
