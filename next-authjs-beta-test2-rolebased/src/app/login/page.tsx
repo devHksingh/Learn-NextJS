@@ -25,6 +25,7 @@ import { Form,
     FormMessage,} from "@/components/ui/form"
 import { Loader2 } from "lucide-react"
 import { doCredentialLogin } from "../actions"
+import FetchImg from "@/components/Pexels-img"
 
 // export default async function LoginPage() {
 //     const msgImgResponse = await axios.get('https://api.pexels.com/v1/search?query=messaging&per_page=1',
@@ -301,7 +302,7 @@ import { doCredentialLogin } from "../actions"
 
 // }
 
-export default function LoginPage(){
+export default  function LoginPage(){
 
     // const {register,handleSubmit,formState:{errors}} = useForm({
     //     resolver:zodResolver(signInSchema),
@@ -313,6 +314,24 @@ export default function LoginPage(){
     
     // const onSubmit = (data) => console.log(data);
 
+    // let fetchImgUrl =""
+    // async function fetchImg2() {
+        
+    //     const response = await axios.get("https://api.pexels.com/v1/search?query=messaging&per_page=1",
+    //         {headers:{
+    //             Authorization:process.env.AUTH_PEXELS_API_KEY
+    //         }}
+    //     )
+
+    //     fetchImgUrl = response.data.photos[0].src.original
+
+    //     console.log('testing ,imgUrl:',fetchImgUrl);
+    //     return fetchImgUrl
+    // }
+
+    // const imgUrl = await fetchImg2()
+    // console.log("Login page fetch img",fetchImgUrl);
+    
     const form = useForm<z.infer<typeof signInSchema>>({
         resolver: zodResolver(signInSchema),
         defaultValues: {
@@ -322,69 +341,70 @@ export default function LoginPage(){
       })
     
     async function  onSubmit(values: z.infer<typeof signInSchema>) {
-        // Do something with the form values.
-        // ✅ This will be type-safe and validated.
+        
         console.log("AFTER onSubmit");
-        // setIsSubmitting(true)
-        // const result = await signIn("credentials",{
-        //     redirect:false,
-        //     identifier:values.identifier,
-        //     password:values.password
-        // })
+        
 
         const result = await doCredentialLogin(values)
 
-        // console.log("LoginPage => result of credentials:", result);
-        console.log(values)
       }
     
     return (
-        // <form onSubmit={handleSubmit(onSubmit)} className=" border bg-slate-400 p-8">
-        //     <input {...register("identifier")} className="bg-gray-200 text-black p-2"/>
-        //     <p>{errors.identifier?.message}</p>
+        
+        <div className=" mt-[10rem] lg:grid lg:grid-cols-2 justify-center items-center  h-full pl-4 pr-4 gap-2  z-[-10] shadow-2xl">
+            <div className="p-8  flex flex-col justify-center">
+            <h1 className="text-center text-4xl  border-b pb-4 mb-12 border-gray-600 font-bold">Login</h1>
+            <Form {...form}>
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 text-lg">
+                    <FormField
+                    control={form.control}
+                    name="identifier"
+                    render={({ field }) => (
+                        <FormItem>
+                        <FormLabel>Username/Email</FormLabel>
+                        <FormControl>
+                            <Input placeholder="Enter Username or Email" {...field} />
+                        </FormControl>
+                        
+                        <FormMessage />
+                        </FormItem>
+                    )}
+                    />
+                    <FormField
+                    control={form.control}
+                    name="password"
+                    render={({ field }) => (
+                        <FormItem>
+                        <FormLabel>Password</FormLabel>
+                        <FormControl>
+                            <Input placeholder="password" {...field} />
+                        </FormControl>
+                        
+                        <FormMessage />
+                        </FormItem>
+                    )}
+                    />
+                    <Button type="submit" className="w-full">Submit</Button>
+                    
+                </form>
+            </Form>
+                    <div className="mt-4 text-center text-sm">
+                        Don&apos;t have an account?{" "}
+                        <Link href="/register" className="underline">
+                        Sign up
+                        </Link>
+                    </div>
+                    <Button variant="outline" className="w-full">
+                         Login with Google
+                    </Button>
+            </div>
+            <div className=" hidden bg-muted lg:block h-full">
+                    <FetchImg/>
+            </div>
+        </div>
 
-        //     <input {...register("password")} className="bg-gray-200 text-black p-2" />
-        //     <p>{errors.password?.message}</p>
-
-        //     <input type="submit" />
-        // </form>
-
-        <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-        <FormField
-          control={form.control}
-          name="identifier"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Username/Email</FormLabel>
-              <FormControl>
-                <Input placeholder="shadcn" {...field} />
-              </FormControl>
-              <FormDescription>
-                This is your public display name.
-              </FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="password"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Password</FormLabel>
-              <FormControl>
-                <Input placeholder="password" {...field} />
-              </FormControl>
-              <FormDescription>
-                This is your public display name.
-              </FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <Button type="submit">Submit</Button>
-      </form>
-    </Form>
+        
     )
 }
+
+//  lg:min-h-[600px] xl:min-h-[800px]
