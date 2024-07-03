@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { Button } from '../ui/button'
 import { useState } from 'react'
 import { usePathname } from 'next/navigation'
-import ThemeSwitcher, { ModeToggle } from '../ModeToggle'
+import  { ModeToggle } from '../ModeToggle'
 
 
 const NavBar = () => {
