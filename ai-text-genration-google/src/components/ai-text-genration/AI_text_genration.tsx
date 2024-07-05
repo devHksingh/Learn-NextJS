@@ -2,7 +2,7 @@
 import { HarmBlockThreshold, HarmCategory } from "@google/generative-ai";
 import { GoogleGenerativeAI } from "@google/generative-ai"
 import InputField from "../InputField";
-import { z } from "zod"
+import {  z } from "zod"
 import React, { useState } from 'react'
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
@@ -79,20 +79,31 @@ const formSchema = z.object({
 //     }
 // }
 
-async function getAIText(prompt:string){
-  try {
-    
-    const text = await fetchAiText(prompt)
-    console.log("$$$$ AI TEXT $$$ :",text);
-    return text
-  } catch (error) {
-    console.log('Unable to genrate the Text',error);
-    
-  }
-}
+
 
 //
 const AITextGenration = () => {
+
+  const [blogTopic,setBlogTopic] = useState('')
+  const [loading,setLoading] = useState(false)
+  const [aiText,setAiText] = useState<string>("")
+
+  async function getAIText(prompt:string){
+    try {
+      
+      const result = await fetchAiText(prompt)
+      console.log("$$$$ AI TEXT $$$ :",result);
+      if(result !== undefined){
+        console.log("RESULT : ",result);
+        
+        setAiText(result)
+      }
+      return result
+    } catch (error) {
+      console.log('Unable to genrate the Text',error);
+      
+    }
+  }
 
     const form = useForm<z.infer<typeof formSchema>>({
         resolver:zodResolver(formSchema),
@@ -106,12 +117,14 @@ const AITextGenration = () => {
         const tpoic = values.topic
         setBlogTopic(tpoic)
         console.log('Blog topic',blogTopic);
+        let text  
+        
+        text = getAIText(prompt2) 
         
         
     }
     
-    const [blogTopic,setBlogTopic] = useState('')
-    const [loading,setLoading] = useState(false)
+    
     
     const prompt = `
           Write a blog post about ${blogTopic}. The blog post should be informative and engaging, targeting an audience interested in this topic. The tone should be appropriate for the subject matter, providing valuable insights and information.
@@ -165,16 +178,6 @@ const AITextGenration = () => {
 
     // console.log(prompt2);
 
-    let text 
-
-    if(blogTopic){
-      console.log("BLOG POST");
-      
-      text = getAIText(prompt2)
-    }
-
-
-    
 
 
   return (
@@ -207,12 +210,12 @@ const AITextGenration = () => {
         <span className="text-[0.8rem] text-muted-foreground">Enter a topic for the blog post you want to generate.</span>
         <div className="mt-4 border p-6 w-1/2 mx-auto">
                   {
-                    blogTopic? <h2>`${blogTopic}`</h2>:<p className="text-muted-foreground">Enter topic</p>
+                    blogTopic? <h2>{blogTopic}</h2>:<p className="text-muted-foreground">Enter topic</p>
                   }
 
                   <div>
                     <p>
-                      {text ? <p>`${text}`</p>:""}
+                      {aiText ? <p>{aiText}</p>:""}
                     </p>
                   </div>
           <p>
