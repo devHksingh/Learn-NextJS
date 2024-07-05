@@ -5,10 +5,10 @@ import { GoogleGenerativeAI } from "@google/generative-ai"
 
 async function fetchAiText(prompt:string){
     const genAI = new GoogleGenerativeAI(process.env.GOOGLE_KEY as string)
-    console.log("hi");
+
     
     try {
-        // const model = genAI.getGenerativeModel({model:"gemini-1.0-pro"})
+        
 
         const generationConfig = {
             // stopSequences: ["red"],
