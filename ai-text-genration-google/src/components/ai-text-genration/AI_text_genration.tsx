@@ -126,52 +126,76 @@ const AITextGenration = () => {
     
     
     
-    const prompt = `
-          Write a blog post about ${blogTopic}. The blog post should be informative and engaging, targeting an audience interested in this topic. The tone should be appropriate for the subject matter, providing valuable insights and information.
+    const prompt2 = `
+          Generate a blog post on the topic: "${blogTopic}". 
 
-          Include the following points:
-          1. An introduction to ${blogTopic} and its significance.
-          2. Key features or aspects related to ${blogTopic}.
-          3. Comparisons with related topics or alternatives.
-          4. Benefits and potential drawbacks.
-          5. The expected impact and audience reception.
-          6. Future developments or potential trends.
+        The blog post should be structured as follows:
 
-          Conclude with a brief summary of why ${blogTopic} is important and what readers should take away from the blog post.
+        1. **Title**: A compelling and attention-grabbing title.
+        2. **Introduction**: A brief introduction to the topic that hooks the reader.
+        3. **Section 1: Heading**: A main heading for the first section.
+            - **Subheading 1.1**: A subheading under the first section.
+                - **Paragraph**: A detailed paragraph explaining Subheading 1.1 with relevant examples or insights.
+            - **Subheading 1.2**: Another subheading under the first section.
+                - **Paragraph**: A detailed paragraph explaining Subheading 1.2 with relevant examples or insights.
+        4. **Section 2: Heading**: A main heading for the second section.
+            - **Subheading 2.1**: A subheading under the second section.
+                - **Paragraph**: A detailed paragraph explaining Subheading 2.1 with relevant examples or insights.
+            - **Subheading 2.2**: Another subheading under the second section.
+                - **Paragraph**: A detailed paragraph explaining Subheading 2.2 with relevant examples or insights.
+        5. **Conclusion**: Summarize the main points of the blog post and provide a closing thought or call to action.
+
+        The writing style should be engaging, informative, and similar to blog posts found on daily.dev and Medium. Use clear headings and subheadings, and ensure the content is well-researched and relevant.
+
+        Topic: "${blogTopic}"
         `
-    const prompt2 =`
-        Write a blog post about "${blogTopic}". The blog post should be informative and engaging, targeting an audience interested in this topic. The tone should be appropriate for the subject matter, providing valuable insights and information.
+        
+    // const prompt2 = `
+    //       Write a blog post about ${blogTopic}. The blog post should be informative and engaging, targeting an audience interested in this topic. The tone should be appropriate for the subject matter, providing valuable insights and information.
 
-          Structure the blog post as follows:
+    //       Include the following points:
+    //       1. An introduction to ${blogTopic} and its significance.
+    //       2. Key features or aspects related to ${blogTopic}.
+    //       3. Comparisons with related topics or alternatives.
+    //       4. Benefits and potential drawbacks.
+    //       5. The expected impact and audience reception.
+    //       6. Future developments or potential trends.
 
-          # Introduction
-          - Paragraph: Introduce the topic "${blogTopic}" and its significance.
+    //       Conclude with a brief summary of why ${blogTopic} is important and what readers should take away from the blog post.
+    //     `
+    // const prompt2 =`
+    //     Write a blog post about "${blogTopic}". The blog post should be informative and engaging, targeting an audience interested in this topic. The tone should be appropriate for the subject matter, providing valuable insights and information.
 
-          ## Key Features or Aspects
-          - Subheading: Highlight the main features or aspects related to "${blogTopic}".
-          - Paragraph: Provide detailed information about these features or aspects.
+    //       Structure the blog post as follows:
 
-          ## Comparisons with Related Topics or Alternatives
-          - Subheading: Compare "${blogTopic}" with related topics or alternatives.
-          - Paragraph: Discuss the similarities and differences, and why "${blogTopic}" stands out.
+    //       # Introduction
+    //       - Paragraph: Introduce the topic "${blogTopic}" and its significance.
 
-          ## Benefits and Potential Drawbacks
-          - Subheading: Explain the benefits of "${blogTopic}".
-          - Paragraph: Describe the positive aspects.
-          - Subheading: Discuss potential drawbacks.
-          - Paragraph: Mention any downsides or challenges.
+    //       ## Key Features or Aspects
+    //       - Subheading: Highlight the main features or aspects related to "${blogTopic}".
+    //       - Paragraph: Provide detailed information about these features or aspects.
 
-          ## Expected Impact and Audience Reception
-          - Subheading: Discuss the impact of "${blogTopic}".
-          - Paragraph: Explain how it is expected to influence the audience and its reception.
+    //       ## Comparisons with Related Topics or Alternatives
+    //       - Subheading: Compare "${blogTopic}" with related topics or alternatives.
+    //       - Paragraph: Discuss the similarities and differences, and why "${blogTopic}" stands out.
 
-          ## Future Developments or Potential Trends
-          - Subheading: Explore future developments or trends related to "${blogTopic}".
-          - Paragraph: Provide insights into what to expect in the future.
+    //       ## Benefits and Potential Drawbacks
+    //       - Subheading: Explain the benefits of "${blogTopic}".
+    //       - Paragraph: Describe the positive aspects.
+    //       - Subheading: Discuss potential drawbacks.
+    //       - Paragraph: Mention any downsides or challenges.
 
-          # Conclusion
-          - Paragraph: Summarize the importance of "${blogTopic}" and key takeaways for the readers.
-    `
+    //       ## Expected Impact and Audience Reception
+    //       - Subheading: Discuss the impact of "${blogTopic}".
+    //       - Paragraph: Explain how it is expected to influence the audience and its reception.
+
+    //       ## Future Developments or Potential Trends
+    //       - Subheading: Explore future developments or trends related to "${blogTopic}".
+    //       - Paragraph: Provide insights into what to expect in the future.
+
+    //       # Conclusion
+    //       - Paragraph: Summarize the importance of "${blogTopic}" and key takeaways for the readers.
+    // `
     // "can you please genrate an blog Post with mention heading and paragraph"
 
     // const text = fetchAIText(prompt2)
@@ -210,7 +234,7 @@ const AITextGenration = () => {
         <span className="text-[0.8rem] text-muted-foreground">Enter a topic for the blog post you want to generate.</span>
         <div className="mt-4 border p-6 w-1/2 mx-auto">
                   {
-                    blogTopic? <h2>{blogTopic}</h2>:<p className="text-muted-foreground">Enter topic</p>
+                    blogTopic? <h2 className=" capitalize text">{blogTopic}</h2>:<p className="text-muted-foreground">Enter topic</p>
                   }
 
                   <div>
