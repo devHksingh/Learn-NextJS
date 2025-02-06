@@ -66,7 +66,7 @@ export const sampleBooks = [
         availableCopies: 10,
         description:
             "A dazzling novel about all the choices that go into a life well lived, The Midnight Library tells the story of Nora Seed as she finds herself between life and death.",
-        color: "#1c1f40",
+        coverColor: "#1c1f40",
         cover: "https://m.media-amazon.com/images/I/81J6APjwxlL.jpg",
         video: "/sample-video.mp4?updatedAt=1722593504152",
         summary:
@@ -82,7 +82,7 @@ export const sampleBooks = [
         availableCopies: 50,
         description:
             "A revolutionary guide to making good habits, breaking bad ones, and getting 1% better every day.",
-        color: "#fffdf6",
+        coverColor: "#fffdf6",
         cover: "https://m.media-amazon.com/images/I/81F90H7hnML.jpg",
         video: "/sample-video.mp4?updatedAt=1722593504152",
         summary:
@@ -98,7 +98,7 @@ export const sampleBooks = [
         availableCopies: 5,
         description:
             "An essential guide to understanding the core mechanisms of JavaScript, focusing on scope and closures.",
-        color: "#f8e036",
+        coverColor: "#f8e036",
         cover:
             "https://m.media-amazon.com/images/I/7186YfjgHHL._AC_UF1000,1000_QL80_.jpg",
         video: "/sample-video.mp4?updatedAt=1722593504152",
@@ -115,7 +115,7 @@ export const sampleBooks = [
         availableCopies: 50,
         description:
             "A magical tale of Santiago, an Andalusian shepherd boy, who embarks on a journey to find a worldly treasure.",
-        color: "#ed6322",
+        coverColor: "#ed6322",
         cover:
             "https://m.media-amazon.com/images/I/61HAE8zahLL._AC_UF1000,1000_QL80_.jpg",
         video: "/sample-video.mp4?updatedAt=1722593504152",
@@ -132,7 +132,7 @@ export const sampleBooks = [
         availableCopies: 23,
         description:
             "Rules for focused success in a distracted world, teaching how to cultivate deep focus to achieve peak productivity.",
-        color: "#ffffff",
+        coverColor: "#ffffff",
         cover: "https://m.media-amazon.com/images/I/81JJ7fyyKyS.jpg",
         video: "/sample-video.mp4?updatedAt=1722593504152",
         summary:
@@ -148,7 +148,7 @@ export const sampleBooks = [
         availableCopies: 56,
         description:
             "A handbook of agile software craftsmanship, offering best practices and principles for writing clean and maintainable code.",
-        color: "#080c0d",
+        coverColor: "#080c0d",
         cover:
             "https://m.media-amazon.com/images/I/71T7aD3EOTL._UF1000,1000_QL80_.jpg",
         video: "/sample-video.mp4?updatedAt=1722593504152",
@@ -165,7 +165,7 @@ export const sampleBooks = [
         availableCopies: 3,
         description:
             "A timeless guide for developers to hone their skills and improve their programming practices.",
-        color: "#100f15",
+        coverColor: "#100f15",
         cover:
             "https://m.media-amazon.com/images/I/71VStSjZmpL._AC_UF1000,1000_QL80_.jpg",
         video: "/sample-video.mp4?updatedAt=1722593504152",
@@ -182,7 +182,7 @@ export const sampleBooks = [
         availableCopies: 5,
         description:
             "Morgan Housel explores the unique behaviors and mindsets that shape financial success and decision-making.",
-        color: "#ffffff",
+        coverColor: "#ffffff",
         cover:
             "https://m.media-amazon.com/images/I/81Dky+tD+pL._AC_UF1000,1000_QL80_.jpg",
         video: "/sample-video.mp4?updatedAt=1722593504152",
